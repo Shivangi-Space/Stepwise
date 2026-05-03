@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { RootStackParamList } from './types';
 
 import Step1Screen from '../screens/Step1';
+import Step2Screen from '../screens/Step2';
 import { COLORS } from '../constants/theme';
 
 const Stack = createStackNavigator<RootStackParamList>();
@@ -22,6 +23,12 @@ const AppNavigator = () => {
           name="Step1" 
           component={Step1Screen} 
           options={{ title: 'Age Range' }} 
+        />
+
+        <Stack.Screen
+            name="Step2"
+            component={Step2Screen}
+            options={{ title: 'Step 2' }}
         />
       </Stack.Navigator>
     </NavigationContainer>
