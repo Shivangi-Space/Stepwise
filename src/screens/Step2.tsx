@@ -34,7 +34,13 @@ const Step2Screen = ({ navigation }: {navigation: Step2NavProp }) => {
 
     const { formData, updateFormData } = useFlow();
 
-
+    const handleNext = () => {
+        if(formData.goal === 'weight_loss') {
+            navigation.navigate('Step3');
+        } else {
+            navigation.navigate('Step4');
+        }
+    };
 
     return (
         <Container>
@@ -79,3 +85,37 @@ const Step2Screen = ({ navigation }: {navigation: Step2NavProp }) => {
 
 export default Step2Screen;
 
+const styles = StyleSheet.create({
+    content: {
+        flex: 1
+    },
+    title:{
+        fontSize: SIZES.fontTitle,
+        fontWeight: 'bold',
+        marginBottom: 20,
+    },
+    card: {
+        padding: 20,
+        borderWidth: 1,
+        borderColor: COLORS.border,
+        borderRadius: SIZES.radius,
+        marginBottom: 15,
+        backgroundColor: COLORS.white,
+    },
+    selectedCard: {
+        borderColor: COLORS.primary,
+        backgroundColor: '#EEF2FF',
+        borderWidth: 2
+    },
+    cardText: {
+        fontSize: 16,
+        color: COLORS.textPrimary,
+    },
+    selectedCardText: {
+        color: COLORS.primary,
+        fontWeight: 'bold',
+    },
+    footer: {
+        marginTop: "auto",
+    }
+})
