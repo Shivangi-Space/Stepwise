@@ -7,6 +7,7 @@ import Step1Screen from '../screens/Step1';
 import Step2Screen from '../screens/Step2';
 import Step3Screen from '../screens/Step3';
 import Step4Screen from '../screens/Step4';
+import SummaryScreen from '../screens/Summary';
 import { COLORS } from '../constants/theme';
 
 const Stack = createStackNavigator<RootStackParamList>();
@@ -43,6 +44,12 @@ const AppNavigator = () => {
             name="Step4"
             component={Step4Screen}
             options={{ title: 'Step 4' }}
+        />
+
+        <Stack.Screen
+            name="Summary"
+            component={SummaryScreen}
+            options={{ title: 'Summary' }}
         />
       </Stack.Navigator>
     </NavigationContainer>

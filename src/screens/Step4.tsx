@@ -10,6 +10,7 @@ import Container from "../components/Container";
 import ProgressBar from "../components/ProgressBar";
 import AppButton from "../components/AppButton";
 import { COLORS, SIZES } from "../constants/theme";
+import { useNavigation } from '@react-navigation/native';
 import { useFlow } from "../store/FlowContext";
 
 const PREFERENCES = [
@@ -22,6 +23,7 @@ const PREFERENCES = [
 ];
 
 const Step4Screen = () => {
+  const navigation = useNavigation();
   const { formData, updateFormData } = useFlow();
 
   const togglePreference = (item: string) => {
@@ -71,7 +73,7 @@ const Step4Screen = () => {
         <AppButton
           title="Back"
           variant="secondary"
-          onPress={() => navigation.back()}
+          onPress={() => navigation.goBack()} 
         />
         <AppButton
           title="See Summary"
