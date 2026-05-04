@@ -23,7 +23,7 @@ const PREFERENCES = [
 ];
 
 const Step4Screen = () => {
-  const navigation = useNavigation();
+  const navigation = useNavigation<any>();
   const { formData, updateFormData } = useFlow();
 
   const togglePreference = (item: string) => {

@@ -1,6 +1,6 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-const API_BASE_URL = "https://6634ceae9bb0dfa1f810fd8b.mockapi.io/api/v1";
+const API_BASE_URL = "https://69f80a73dd0c226688ee1ced.mockapi.io";
 
 export const apiService = {
     saveProgress: async (data: any) => {
@@ -12,18 +12,27 @@ export const apiService = {
                 },
                 body: JSON.stringify(data),
             });
+            if(!response.ok) throw new Error("Server error while saving progress");
             return await response.json();
         } catch (e) {
-            throw new Error("Failed to save progress");
+            console.error("API Save Error:", e);
+            throw e;
         }
     },
 
     getProgress: async() => {
         try {
-            const response = await fetch(`${API_BASE_URL}/progress/1`); 
-            return await response.json();
+            const response = await fetch(`${API_BASE_URL}/progress`); 
+            if (!response.ok) throw new Error("Server error while fetching");
+            const data = await response.json();
+            
+            if (data.length > 0) {
+                return data[data.length - 1]; 
+            }
+            return null;
         } catch (e) {
-            throw new Error("Failed to get progress");
+            console.error("API Get Error:", e);
+            throw e;
         }
     }
 };
