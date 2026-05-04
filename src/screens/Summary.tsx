@@ -8,7 +8,7 @@ import { apiService } from '../services/apiService';
 import { usePersistence } from '../hooks/usePersistence';
 
 const SummaryScreen = ({ navigation }: any) => {
-  const { formData } = useFlow();
+  const { formData, resetForm } = useFlow();
   const { clearProgress } = usePersistence();
   const [loading, setLoading] = useState(false);
 
@@ -17,6 +17,7 @@ const SummaryScreen = ({ navigation }: any) => {
     try {
       await apiService.saveProgress(formData);
       await clearProgress(); 
+      resetForm();
       Alert.alert("Success", "Your data has been saved!", [
         { text: "OK", onPress: () => navigation.navigate('Step1') }
       ]);

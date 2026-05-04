@@ -45,7 +45,7 @@ const Step3Screen = ({navigation}: any) => {
             </View>
 
             <View style={styles.footer}>
-                <AppButton title="Back" variant="secondary" onPress={() => navigation.goBack} />
+                <AppButton title="Back" variant="secondary" onPress={() => navigation.goBack()} />
                 <AppButton title="Next" onPress={handleNext} disabled={!formData.extraDetails} />
             </View>
         </Container>
