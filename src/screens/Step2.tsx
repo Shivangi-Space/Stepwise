@@ -78,7 +78,7 @@ const Step2Screen = ({ navigation }: {navigation: Step2NavProp }) => {
                     onPress={handleNext}
                     disabled={!formData.goal}
                 />
-                
+
             </View>
         </Container>
     );
