@@ -70,7 +70,15 @@ const Step2Screen = ({ navigation }: {navigation: Step2NavProp }) => {
                 ))}
             </View>
 
-            
+            <View style={styles.footer}>
+                <AppButton title="Back" variant="secondary" onPress={() => navigation.goBack()} />
+
+                <AppButton
+                    title="Next"
+                    onPress={handleNext}
+                    disabled={!formData.goal}
+                />
+            </View>
         </Container>
     );
 };
