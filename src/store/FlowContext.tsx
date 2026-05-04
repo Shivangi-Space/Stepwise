@@ -16,6 +16,7 @@ type FormDataType = {
 type FlowContextType = {
     formData: FormDataType;
     updateFormData: (data: Partial<FormDataType>) => void;
+    resetForm: () => void;
 }
 
 const FlowContext = createContext<FlowContextType | undefined>(undefined);
@@ -25,20 +26,26 @@ type Props = {
 }
 
 export const FlowProvider = ({ children }: Props) => {
-    const [formData, setFormData] = useState<FormDataType>({
+    const initialState = {
         step: 1,
         age: '',
         goal: '',
         preferences: [],
         extraDetails: '',
-    });
+    };
 
+    const [formData, setFormData] = useState<FormDataType>(initialState);
+    
     const updateFormData = (newdata: Partial<FormDataType>) => {
         setFormData(prev => ({ ...prev, ...newdata })); 
     };
 
+    const resetForm = () => {
+        setFormData(initialState);
+    };
+
     return (
-        <FlowContext.Provider value={{ formData, updateFormData }}>
+        <FlowContext.Provider value={{ formData, updateFormData, resetForm }}>
             {children}
         </FlowContext.Provider>
     );
