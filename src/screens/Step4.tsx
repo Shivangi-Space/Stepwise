@@ -10,6 +10,7 @@ import Container from "../components/Container";
 import ProgressBar from "../components/ProgressBar";
 import AppButton from "../components/AppButton";
 import { COLORS, SIZES } from "../constants/theme";
+
 import { useNavigation } from '@react-navigation/native';
 import { useFlow } from "../store/FlowContext";
 
@@ -23,6 +24,7 @@ const PREFERENCES = [
 ];
 
 const Step4Screen = () => {
+
   const navigation = useNavigation<any>();
   const { formData, updateFormData } = useFlow();
 
