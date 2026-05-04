@@ -1,4 +1,3 @@
-// App.tsx
 import 'react-native-gesture-handler';
 import React, { useEffect } from 'react';
 import { FlowProvider, useFlow } from './src/store/FlowContext';

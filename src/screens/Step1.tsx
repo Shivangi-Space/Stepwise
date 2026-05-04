@@ -5,10 +5,10 @@ import { COLORS, SIZES } from "../constants/theme";
 import { useFlow } from "../store/FlowContext";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { RootStackParamList } from "../navigation/types";
-import AppButton from "../components/AppButton"; // Reusable Button
-import ProgressBar from "../components/ProgressBar"; // Reusable Progress Bar
+import AppButton from "../components/AppButton";
+import ProgressBar from "../components/ProgressBar"; 
 
-// Navigation ka type define karein
+
 type Step1NavProp = StackNavigationProp<RootStackParamList, "Step1">;
 
 interface Props {
@@ -18,12 +18,11 @@ interface Props {
 const Step1Screen = ({ navigation }: Props) => {
   const { formData, updateFormData } = useFlow();
 
-  // Validation: Age empty nahi honi chahiye aur number honi chahiye
   const isNextDisabled = !formData.age || isNaN(Number(formData.age));
 
   return (
     <Container>
-      {/* Progress Bar Add Kiya */}
+      {/* Progress Bar added */}
       <ProgressBar currentStep={1} totalSteps={5} />
 
       <View style={styles.header}>
@@ -46,7 +45,7 @@ const Step1Screen = ({ navigation }: Props) => {
         <AppButton 
           title="Next" 
           onPress={() => navigation.navigate("Step2")} 
-          disabled={isNextDisabled} // Validation logic
+          disabled={isNextDisabled}
         />
       </View>
     </Container>

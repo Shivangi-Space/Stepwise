@@ -16,7 +16,7 @@ const SummaryScreen = ({ navigation }: any) => {
     setLoading(true);
     try {
       await apiService.saveProgress(formData);
-      await clearProgress(); // Submit ke baad local data clear kar do
+      await clearProgress(); 
       Alert.alert("Success", "Your data has been saved!", [
         { text: "OK", onPress: () => navigation.navigate('Step1') }
       ]);
