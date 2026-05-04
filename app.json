@@ -24,6 +24,18 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "6d32aab7-fdee-4491-9f78-20e42e7aac61"
+      }
+    },
+    "owner": "shivangibangar",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/6d32aab7-fdee-4491-9f78-20e42e7aac61"
     }
   }
 }
